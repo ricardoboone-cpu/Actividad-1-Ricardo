@@ -85,8 +85,7 @@ public class LinkedList<T> {
         int index = 0;
         while (curr != null) {
             sb.append("[").append(index).append("] ");
-            sb.append(curr.getData());
-            sb.append("\n");
+            sb.append(curr.getData()).append("\n");
             curr = curr.getNext();
             index++;
         }
@@ -117,5 +116,26 @@ public class LinkedList<T> {
 
     public void clear() {
         head = tail = null;
+    }
+
+    // === Métodos agregados para pila/cola ===
+
+    public T removeFirst() {
+        if (head == null) return null;
+        T value = head.getData();
+        head = head.getNext();
+
+        if (head == null) tail = null;
+        else if (isDoubly) head.setPrev(null);
+
+        return value;
+    }
+
+    public T peekFirst() {
+        return (head == null) ? null : head.getData();
+    }
+
+    public void addLast(T data) {
+        insertEnd(data);
     }
 }

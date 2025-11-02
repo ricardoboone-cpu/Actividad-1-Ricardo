@@ -21,8 +21,8 @@ public class Main {
         System.out.println("=======================================");
         System.out.println("Alumno: Ricardo Sebastián Boone Delgado");
         System.out.println("Materia: Estructuras de Datos");
-        System.out.println("Profesor: [Profe Paco");
-        System.out.println("Proyecto: Actividad 1");
+        System.out.println("Profesor: Profe Paco");
+        System.out.println("Proyecto: Actividad 2");
         System.out.println("=======================================");
 
         LinkedList<Object> lista = null;
@@ -37,6 +37,8 @@ public class Main {
                 System.out.println("5) Buscar elemento");
                 System.out.println("6) Eliminar elemento");
                 System.out.println("7) Ejemplos de tipos de datos");
+                System.out.println("8) Probar Pila");
+                System.out.println("9) Probar Cola");
                 System.out.println("0) Salir");
 
                 String opt = readLine("Elige opción: ", br);
@@ -80,13 +82,38 @@ public class Main {
                         LinkedList<DataTypeExamples.ContactInfo> absList = new LinkedList<>(false);
                         DataTypeExamples.demoAbstract(absList);
                         break;
+
+                    case "8":
+                        System.out.println("\n=== Prueba de Pila ===");
+                        Pila<String> pila = new Pila<>();
+                        pila.push("A");
+                        pila.push("B");
+                        pila.push("C");
+
+                        System.out.println("Peek: " + pila.peek());
+                        System.out.println("Pop: " + pila.pop());
+                        System.out.println("Nuevo Peek: " + pila.peek());
+                        break;
+
+                    case "9":
+                        System.out.println("\n=== Prueba de Cola ===");
+                        Cola<String> cola = new Cola<>();
+                        cola.enqueue("Ricardo");
+                        cola.enqueue("Karen");
+                        cola.enqueue("Valeria");
+
+                        System.out.println("Peek: " + cola.peek());
+                        System.out.println("Dequeue: " + cola.dequeue());
+                        System.out.println("Nuevo Peek: " + cola.peek());
+                        break;
+
                     default:
                         System.out.println("Opción inválida.");
                 }
             }
             System.out.println("Fin del programa.");
         } catch (IOException e) {
-            System.out.println("Error de entrada/salida: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
